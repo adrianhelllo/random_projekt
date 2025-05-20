@@ -1,4 +1,5 @@
 import random
+import time
 
 VALUES = {
     '🍎': 0.5,
@@ -29,9 +30,9 @@ def welcome_msg():
 def print_slots(on):
     chosen_multips = [random.choice(list(VALUES.keys())) for _ in range(3)]
     line = (
-    f"| {random.choice(chosen_multips) if on else '  '} | "
-    f"{random.choice(chosen_multips) if on else '  '} | "
-    f"{random.choice(chosen_multips) if on else '  '} |"
+    f"| {random.choice(chosen_multips) if on else '  ' if not on else ' '} | "
+    f"{random.choice(chosen_multips) if on else '  ' if not on else ' '} | "
+    f"{random.choice(chosen_multips) if on else '  ' if not on else ' '} |"
     )
     print(f'{"----------------":^{width}}')
     print(f"{line:^{width}}")
@@ -45,8 +46,9 @@ def main():
         print("Invalid input. Please try again.")
         pull = input("Type \"pull\" to start the slot machine: ")
     
-    for _ in range(5000):
+    for _ in range(50):
         print_slots(True)
+        time.sleep(0.1)
 
 if __name__ == '__main__':
     main()
