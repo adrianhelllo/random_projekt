@@ -24,7 +24,7 @@ def welcome_msg():
     bal = int(input("Please enter your starter balance to begin with [bal > 0]: "))
     while not (bal > 0):
         print("Invalid input. Please try again.")
-        bal = input("Please enter your starter balance to begin with [bal > 0]: ")
+        bal = input("Please enter your starting balance to begin with [bal > 0]: ")
     return bal
 
 def print_slots(on):
