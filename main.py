@@ -20,7 +20,7 @@ def welcome_msg():
     print("You will be able to bet on 1, 2 or 3 lines of the slot machine, which will each multiply your bet, based on what they land on.")
     print(f"Here are all the possible outcomes and their multipliers:")
     print(f'\n{sep}\n'.join(f'{f"{key} -> {value}":^{width}}' for key, value in VALUES.items()))
-    bal = input("Please enter your starter balance to begin with [bal > 0]: ")
+    bal = int(input("Please enter your starter balance to begin with [bal > 0]: "))
     while not (bal > 0):
         print("Invalid input. Please try again.")
         bal = input("Please enter your starter balance to begin with [bal > 0]: ")
@@ -40,7 +40,13 @@ def print_slots(on):
 def main():
     bal = welcome_msg()
     print_slots(False)
-    print("Type pull")
+    pull = input("Type \"pull\" to start the slot machine: ")
+    while pull != 'pull':
+        print("Invalid input. Please try again.")
+        pull = input("Type \"pull\" to start the slot machine: ")
+    
+    for _ in range(5000):
+        print_slots(True)
 
 if __name__ == '__main__':
     main()
